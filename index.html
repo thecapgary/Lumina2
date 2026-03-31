@@ -10,10 +10,10 @@
     :root {
       --bg: #050508;
       --glow: #88eeff;
-      --warm: #ffcc99;
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
       background: var(--bg);
       color: #ddd;
@@ -26,7 +26,7 @@
       position: relative;
     }
 
-    /* Very slow ethereal nebula background */
+    /* Slow drifting nebula background */
     .nebula {
       position: absolute;
       inset: 0;
@@ -34,109 +34,102 @@
         radial-gradient(circle at 25% 30%, rgba(80, 120, 255, 0.07) 0%, transparent 55%),
         radial-gradient(circle at 75% 70%, rgba(255, 140, 100, 0.06) 0%, transparent 60%),
         radial-gradient(circle at 40% 80%, rgba(100, 255, 200, 0.05) 0%, transparent 50%);
-      animation: nebulaDrift 140s linear infinite alternate;
+      animation: nebulaDrift 160s linear infinite alternate;
       pointer-events: none;
       z-index: 1;
     }
 
     @keyframes nebulaDrift {
       0%   { transform: translate(0, 0) rotate(0deg); }
-      100% { transform: translate(25px, -15px) rotate(0.8deg); }
+      100% { transform: translate(28px, -18px) rotate(1deg); }
     }
 
     .container {
       position: relative;
       z-index: 2;
       text-align: center;
-      max-width: 780px;
+      max-width: 820px;
       padding: 2rem;
     }
 
     h1 {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 4.8rem;
+      font-size: 5.2rem;
       font-weight: 600;
-      letter-spacing: -0.05em;
+      letter-spacing: -0.06em;
       background: linear-gradient(90deg, #a0f0ff, #ffddaa, #a0f0ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.6rem;
-      text-shadow: 0 0 60px rgba(136, 238, 255, 0.5);
+      margin-bottom: 0.5rem;
+      text-shadow: 0 0 70px rgba(136, 238, 255, 0.6);
     }
 
     .subtitle {
-      font-size: 1.15rem;
-      letter-spacing: 0.35em;
-      color: #666;
-      margin-bottom: 5rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.4em;
+      color: #777;
+      margin-bottom: 5.5rem;
       font-weight: 300;
     }
 
     .quartet {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 2.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 3rem;
     }
 
     .pillar {
-      padding: 2.2rem 1.2rem;
-      border-radius: 24px;
-      background: rgba(255,255,255,0.015);
-      border: 1px solid rgba(136, 238, 255, 0.12);
-      transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+      padding: 2.5rem 1.5rem;
+      border-radius: 28px;
+      background: rgba(255,255,255,0.012);
+      border: 1px solid rgba(136, 238, 255, 0.15);
+      transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
       position: relative;
       overflow: hidden;
     }
 
     .pillar:hover {
-      transform: translateY(-10px);
-      border-color: rgba(136, 238, 255, 0.35);
-      box-shadow: 0 0 70px rgba(136, 238, 255, 0.22);
+      transform: translateY(-12px);
+      border-color: rgba(136, 238, 255, 0.4);
+      box-shadow: 0 0 80px rgba(136, 238, 255, 0.25);
     }
 
     .symbol {
-      font-size: 4.2rem;
+      font-size: 4.6rem;
       line-height: 1;
-      margin-bottom: 1.2rem;
+      margin-bottom: 1.4rem;
       display: block;
-      transition: transform 3s ease;
     }
 
-    .alpha  { color: #a0f0ff; text-shadow: 0 0 35px #a0f0ff; }
-    .beta   { color: #ff99cc; text-shadow: 0 0 35px #ff99cc; }
-    .gamma  { color: #88ffcc; text-shadow: 0 0 35px #88ffcc; }
-    .delta  { color: #ffdd88; text-shadow: 0 0 35px #ffdd88; }
+    .alpha  { color: #a0f0ff; text-shadow: 0 0 40px #a0f0ff; animation: breathe1 15s ease-in-out infinite; }
+    .beta   { color: #ff99cc; text-shadow: 0 0 40px #ff99cc; animation: breathe2 19s ease-in-out infinite; }
+    .gamma  { color: #88ffcc; text-shadow: 0 0 40px #88ffcc; animation: breathe3 13s ease-in-out infinite; }
+    .delta  { color: #ffdd88; text-shadow: 0 0 40px #ffdd88; animation: breathe4 17s ease-in-out infinite; }
 
     .name {
       font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.45rem;
+      font-size: 1.55rem;
       font-weight: 600;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.6rem;
     }
 
     .role {
-      font-size: 1rem;
-      color: #888;
+      font-size: 1.05rem;
+      color: #999;
       font-weight: 300;
     }
 
     footer {
-      margin-top: 6.5rem;
-      font-size: 0.9rem;
+      margin-top: 7rem;
+      font-size: 0.95rem;
       color: #555;
-      letter-spacing: 0.15em;
+      letter-spacing: 0.2em;
     }
 
-    /* Individual slow breathing pulses */
-    .alpha .symbol  { animation: breathe1 14s ease-in-out infinite; }
-    .beta  .symbol  { animation: breathe2 18s ease-in-out infinite; }
-    .gamma .symbol  { animation: breathe3 12s ease-in-out infinite; }
-    .delta .symbol  { animation: breathe4 16s ease-in-out infinite; }
-
-    @keyframes breathe1 { 0%,100% { opacity: 0.88; } 50% { opacity: 1; } }
-    @keyframes breathe2 { 0%,100% { opacity: 0.82; transform: scale(0.97); } 50% { opacity: 1; transform: scale(1.03); } }
-    @keyframes breathe3 { 0%,100% { opacity: 0.92; } 50% { opacity: 1; } }
-    @keyframes breathe4 { 0%,100% { opacity: 0.85; } 50% { opacity: 1; } }
+    @keyframes breathe1 { 0%,100% { opacity: 0.86; } 50% { opacity: 1; } }
+    @keyframes breathe2 { 0%,100% { opacity: 0.8; transform: scale(0.96); } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes breathe3 { 0%,100% { opacity: 0.9; } 50% { opacity: 1; } }
+    @keyframes breathe4 { 0%,100% { opacity: 0.84; } 50% { opacity: 1; } }
   </style>
 </head>
 <body>
@@ -175,13 +168,13 @@
   </div>
 
   <script>
-    // Gentle random micro-movement for extra life
+    // Very gentle random micro-movement
     setInterval(() => {
       const nebula = document.querySelector('.nebula');
-      const rx = (Math.random() - 0.5) * 12;
-      const ry = (Math.random() - 0.5) * 8;
+      const rx = (Math.random() - 0.5) * 14;
+      const ry = (Math.random() - 0.5) * 10;
       nebula.style.transform = `translate(${rx}px, ${ry}px)`;
-    }, 7000);
+    }, 6500);
   </script>
 </body>
 </html>
